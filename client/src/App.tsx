@@ -19,10 +19,10 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex h-screen bg-background text-foreground">
+        <Sidebar />
         <main className="flex-1 overflow-auto">
           <Router />
         </main>
-        <Sidebar />
       </div>
       <Toaster />
     </QueryClientProvider>
