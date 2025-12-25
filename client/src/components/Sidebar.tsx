@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import { Link } from 'wouter';
 
 interface Tab {
   id: string;
   label: string;
   content?: string;
+  link?: string;
 }
 
 interface SidebarProps {
@@ -16,7 +18,7 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const defaultTabs: Tab[] = tabs.length > 0 ? tabs : [
-    { id: '1', label: 'Projets', content: 'Découvrez mes projets et réalisations' },
+    { id: '1', label: 'Projets', content: 'Découvrez mes projets et réalisations', link: '/explorations-mathematiques' },
     { id: '2', label: 'À propos', content: 'En savoir plus sur moi et mon parcours' },
     { id: '3', label: 'Contact', content: 'Envoyez-moi un message ou connectons-nous' },
   ];
@@ -55,16 +57,31 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
         <div className="p-4 space-y-2">
           {defaultTabs.map(tab => (
             <div key={tab.id} className="border border-border rounded-md overflow-hidden">
-              <button
-                onClick={() => toggleTab(tab.id)}
-                className="w-full flex items-center justify-between p-3 hover-elevate active-elevate-2 bg-secondary text-foreground font-medium transition-colors"
-                data-testid={`button-tab-${tab.id}`}
-              >
-                <span>{tab.label}</span>
-                <ChevronDown 
-                  className={`w-4 h-4 transition-transform ${expanded[tab.id] ? 'rotate-180' : ''}`}
-                />
-              </button>
+              {tab.link ? (
+                <Link href={tab.link}>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="w-full flex items-center justify-between p-3 hover-elevate active-elevate-2 bg-secondary text-foreground font-medium transition-colors text-left"
+                    data-testid={`button-tab-${tab.id}`}
+                  >
+                    <span>{tab.label}</span>
+                    <ChevronDown 
+                      className={`w-4 h-4 transition-transform ${expanded[tab.id] ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                </Link>
+              ) : (
+                <button
+                  onClick={() => toggleTab(tab.id)}
+                  className="w-full flex items-center justify-between p-3 hover-elevate active-elevate-2 bg-secondary text-foreground font-medium transition-colors"
+                  data-testid={`button-tab-${tab.id}`}
+                >
+                  <span>{tab.label}</span>
+                  <ChevronDown 
+                    className={`w-4 h-4 transition-transform ${expanded[tab.id] ? 'rotate-180' : ''}`}
+                  />
+                </button>
+              )}
               {expanded[tab.id] && tab.content && (
                 <div className="p-3 bg-primary/5 border-t border-border text-muted-foreground text-sm">
                   {tab.content}
