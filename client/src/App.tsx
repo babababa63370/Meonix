@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import Home from "@/pages/Home";
 import NotFound from "@/pages/not-found";
+import { Sidebar } from "@/components/Sidebar";
 
 function Router() {
   return (
@@ -17,7 +18,12 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router />
+      <div className="flex h-screen bg-background text-foreground">
+        <main className="flex-1 overflow-auto">
+          <Router />
+        </main>
+        <Sidebar />
+      </div>
       <Toaster />
     </QueryClientProvider>
   );
