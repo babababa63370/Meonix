@@ -2,17 +2,17 @@ export default function Home() {
   const interests = [
     {
       title: 'Programmation',
-      description: 'Crafting elegant solutions through code. Building applications that solve real problems and push technological boundaries.',
+      description: 'Créer des solutions élégantes à travers le code. Construire des applications qui résolvent des problèmes réels et repoussent les limites technologiques.',
       icon: '{}',
     },
     {
       title: 'Mathématiques',
-      description: 'Exploring the language of the universe. From calculus to algorithms, mathematics is the foundation of everything.',
+      description: 'Explorer le langage de l\'univers. Du calcul aux algorithmes, les mathématiques sont le fondement de tout.',
       icon: '∑',
     },
     {
       title: 'Espace',
-      description: 'Gazing at the cosmos. Understanding our place in the universe and the infinite possibilities beyond.',
+      description: 'Contempler le cosmos. Comprendre notre place dans l\'univers et les possibilités infinies au-delà.',
       icon: '★',
     },
   ];
@@ -31,10 +31,10 @@ export default function Home() {
         {/* Description */}
         <div className="text-center space-y-4">
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
-            Welcome to my digital space. I'm passionate about exploring the intersection of 
-            <span className="text-accent font-medium"> programming</span>, 
-            <span className="text-accent font-medium"> mathematics</span>, and 
-            <span className="text-accent font-medium"> space</span>.
+            Bienvenue dans mon espace numérique. Je suis passionné par l'exploration de l'intersection entre la
+            <span className="text-accent font-medium"> programmation</span>, les
+            <span className="text-accent font-medium"> mathématiques</span> et l'
+            <span className="text-accent font-medium"> espace</span>.
           </p>
         </div>
 

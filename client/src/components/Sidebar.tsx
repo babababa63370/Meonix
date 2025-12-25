@@ -16,9 +16,9 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const defaultTabs: Tab[] = tabs.length > 0 ? tabs : [
-    { id: '1', label: 'Panel 1', content: 'Content for panel 1' },
-    { id: '2', label: 'Panel 2', content: 'Content for panel 2' },
-    { id: '3', label: 'Panel 3', content: 'Content for panel 3' },
+    { id: '1', label: 'Projets', content: 'Découvrez mes projets et réalisations' },
+    { id: '2', label: 'À propos', content: 'En savoir plus sur moi et mon parcours' },
+    { id: '3', label: 'Contact', content: 'Envoyez-moi un message ou connectons-nous' },
   ];
 
   const toggleTab = (id: string) => {
