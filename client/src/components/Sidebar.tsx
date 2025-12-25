@@ -33,7 +33,8 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
       {/* Toggle button for mobile */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-50 md:hidden p-2 rounded-md bg-secondary text-foreground hover-elevate"
+        className="fixed top-4 left-4 z-50 md:hidden p-2 rounded-md bg-secondary text-foreground hover-elevate transition-transform duration-300"
+        style={{ transform: isOpen ? 'translateX(320px)' : 'translateX(0)' }}
         data-testid="button-sidebar-toggle"
       >
         {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
