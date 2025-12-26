@@ -29,7 +29,7 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
         { label: 'Websites & Applications', path: '/websites' }
       ]
     },
-    { id: '2', label: 'À propos', content: 'En savoir plus sur moi et mon parcours' },
+    { id: '2', label: 'À propos', link: '/about' },
     { id: '3', label: 'Contact', content: 'Envoyez-moi un message ou connectons-nous' },
   ];
 
