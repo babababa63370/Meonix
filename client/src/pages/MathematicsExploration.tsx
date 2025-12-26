@@ -16,15 +16,15 @@ export default function MathematicsExploration() {
           </Link>
         </div>
 
-        <div className="space-y-8">
-          <div className="text-center mb-12">
+        <div className="space-y-12">
+          <div className="text-center">
             <h1 className="text-5xl font-bold mb-4 text-foreground">Explorations Mathématiques</h1>
             <p className="text-xl text-muted-foreground">
               Découvrez les merveilles cachées des nombres
             </p>
           </div>
 
-          <Card className="p-8 space-y-6 bg-secondary/50 border-border">
+          <div className="space-y-12 max-w-3xl">
             <section>
               <h2 className="text-2xl font-bold mb-4 text-foreground">Qu'est-ce que c'est ?</h2>
               <p className="text-muted-foreground mb-4">
@@ -33,19 +33,21 @@ export default function MathematicsExploration() {
               <p className="text-muted-foreground">
                 Le calcul est simple : prenez chaque chiffre de votre nombre, multipliez-le par lui-même (élevez-le au carré), puis additionnez tous ces carrés. Vous obtenez un nouveau nombre. Recommencez le même processus avec ce nouveau nombre. Et encore... et encore.
               </p>
+              <div className="h-px bg-border my-12" />
             </section>
 
             <section>
               <h2 className="text-2xl font-bold mb-4 text-foreground">Un Exemple Pour Comprendre</h2>
               <p className="text-muted-foreground mb-4">Prenons le nombre <span className="text-accent font-bold">19</span> :</p>
-              <div className="bg-muted/50 p-4 rounded-lg space-y-3">
-                <p className="text-foreground"><span className="text-accent font-bold">Étape 1 :</span> 1² + 9² = 1 + 81 = <span className="font-bold">82</span></p>
-                <p className="text-foreground"><span className="text-accent font-bold">Étape 2 :</span> 8² + 2² = 64 + 4 = <span className="font-bold">68</span></p>
-                <p className="text-foreground"><span className="text-accent font-bold">Étape 3 :</span> 6² + 8² = 36 + 64 = <span className="font-bold">100</span></p>
-                <p className="text-foreground"><span className="text-accent font-bold">Étape 4 :</span> 1² + 0² + 0² = <span className="font-bold">1</span></p>
-                <p className="text-foreground"><span className="text-accent font-bold">Étape 5 :</span> 1² = <span className="font-bold">1</span></p>
-                <p className="text-muted-foreground text-sm mt-4">Nous avons atteint 1 et maintenant c'est un cycle : 1 → 1 → 1 → ...</p>
+              <div className="space-y-2 text-muted-foreground">
+                <p><span className="text-accent font-bold">Étape 1 :</span> 1² + 9² = 1 + 81 = <span className="font-bold">82</span></p>
+                <p><span className="text-accent font-bold">Étape 2 :</span> 8² + 2² = 64 + 4 = <span className="font-bold">68</span></p>
+                <p><span className="text-accent font-bold">Étape 3 :</span> 6² + 8² = 36 + 64 = <span className="font-bold">100</span></p>
+                <p><span className="text-accent font-bold">Étape 4 :</span> 1² + 0² + 0² = <span className="font-bold">1</span></p>
+                <p><span className="text-accent font-bold">Étape 5 :</span> 1² = <span className="font-bold">1</span></p>
+                <p className="text-sm mt-4">Nous avons atteint 1 et maintenant c'est un cycle : 1 → 1 → 1 → ...</p>
               </div>
+              <div className="h-px bg-border my-12" />
             </section>
 
             <section>
@@ -59,6 +61,7 @@ export default function MathematicsExploration() {
               <p className="text-muted-foreground">
                 Mais d'autres nombres ? Ils se retrouvent piégés dans des cycles différents et ne peuvent jamais atteindre 1. Nous les appelons les <span className="text-accent font-bold">nombres tristes</span>.
               </p>
+              <div className="h-px bg-border my-12" />
             </section>
 
             <section>
@@ -70,6 +73,7 @@ export default function MathematicsExploration() {
                 <li>C'est un exemple parfait de comment les mathématiques simples peuvent créer de la complexité</li>
                 <li>Aucun nombre n'échappe à un cycle - ils finissent tous par en trouver un</li>
               </ul>
+              <div className="h-px bg-border my-12" />
             </section>
 
             <section>
@@ -78,7 +82,7 @@ export default function MathematicsExploration() {
                 Essayez avec vos propres nombres. Quel est le vôtre ? Sera-t-il heureux ou triste ? Combien d'étapes avant de trouver un cycle ? Explorez, jouez, et découvrez les patterns fascinants qui se cachent dans les nombres.
               </p>
             </section>
-          </Card>
+          </div>
 
           <div className="text-center">
             <Link href="/">
