@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import Home from "@/pages/Home";
 import MathematicsExploration from "@/pages/MathematicsExploration";
+import DiscordBots from "@/pages/DiscordBots";
 import NotFound from "@/pages/not-found";
 import { Sidebar } from "@/components/Sidebar";
 
@@ -12,6 +13,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/explorations-mathematiques" component={MathematicsExploration} />
+      <Route path="/discord-bots" component={DiscordBots} />
       <Route component={NotFound} />
     </Switch>
   );

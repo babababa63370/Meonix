@@ -8,6 +8,7 @@ interface Tab {
   content?: string;
   link?: string;
   sublink?: { label: string; path: string };
+  sublinks?: { label: string; path: string }[];
 }
 
 interface SidebarProps {
@@ -21,8 +22,11 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
   const defaultTabs: Tab[] = tabs.length > 0 ? tabs : [
     { 
       id: '1', 
-      label: 'Projets', 
-      sublink: { label: 'Explorations Mathématiques', path: '/explorations-mathematiques' }
+      label: 'Projets',
+      sublinks: [
+        { label: 'Explorations Mathématiques', path: '/explorations-mathematiques' },
+        { label: 'Bot Discord', path: '/discord-bots' }
+      ]
     },
     { id: '2', label: 'À propos', content: 'En savoir plus sur moi et mon parcours' },
     { id: '3', label: 'Contact', content: 'Envoyez-moi un message ou connectons-nous' },
@@ -103,6 +107,17 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
                       </button>
                     </Link>
                   )}
+                  {tab.sublinks && tab.sublinks.map((sublink) => (
+                    <Link key={sublink.path} href={sublink.path}>
+                      <button
+                        onClick={() => setIsOpen(false)}
+                        className="w-full px-3 py-2 rounded-md text-sm text-accent hover:bg-secondary/50 transition-colors text-left"
+                        data-testid={`link-${sublink.path}`}
+                      >
+                        → {sublink.label}
+                      </button>
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
