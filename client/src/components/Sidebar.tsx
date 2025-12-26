@@ -7,6 +7,7 @@ interface Tab {
   label: string;
   content?: string;
   link?: string;
+  sublink?: { label: string; path: string };
 }
 
 interface SidebarProps {
@@ -18,7 +19,12 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const defaultTabs: Tab[] = tabs.length > 0 ? tabs : [
-    { id: '1', label: 'Projets', content: 'Une plateforme explorant les cycles mathématiques. Prenez chaque chiffre d\'un nombre, élevez-le au carré, additionnez-les. Les nombres "heureux" convergent vers 1, tandis que d\'autres se piègent dans des cycles fascinants. Jeux interactifs, visualisations, art mathématique et plus.' },
+    { 
+      id: '1', 
+      label: 'Projets', 
+      content: 'Une plateforme explorant les cycles mathématiques. Prenez chaque chiffre d\'un nombre, élevez-le au carré, additionnez-les. Les nombres "heureux" convergent vers 1, tandis que d\'autres se piègent dans des cycles fascinants.',
+      sublink: { label: 'Explorations Mathématiques', path: '/explorations-mathematiques' }
+    },
     { id: '2', label: 'À propos', content: 'En savoir plus sur moi et mon parcours' },
     { id: '3', label: 'Contact', content: 'Envoyez-moi un message ou connectons-nous' },
   ];
@@ -82,9 +88,22 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
                   />
                 </button>
               )}
-              {expanded[tab.id] && tab.content && (
-                <div className="p-3 bg-primary/5 border-t border-border text-muted-foreground text-sm">
-                  {tab.content}
+              {expanded[tab.id] && (
+                <div className="p-3 bg-primary/5 border-t border-border space-y-3">
+                  {tab.content && (
+                    <p className="text-muted-foreground text-sm">{tab.content}</p>
+                  )}
+                  {tab.sublink && (
+                    <Link href={tab.sublink.path}>
+                      <button
+                        onClick={() => setIsOpen(false)}
+                        className="w-full px-3 py-2 rounded-md text-sm text-accent hover:bg-secondary/50 transition-colors text-left"
+                        data-testid={`link-${tab.sublink.path}`}
+                      >
+                        → {tab.sublink.label}
+                      </button>
+                    </Link>
+                  )}
                 </div>
               )}
             </div>
