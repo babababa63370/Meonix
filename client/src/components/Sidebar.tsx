@@ -25,7 +25,8 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
       label: 'Projets',
       sublinks: [
         { label: 'Explorations Mathématiques', path: '/explorations-mathematiques' },
-        { label: 'Bot Discord', path: '/discord-bots' }
+        { label: 'Bot Discord', path: '/discord-bots' },
+        { label: 'Websites & Applications', path: '/websites' }
       ]
     },
     { id: '2', label: 'À propos', content: 'En savoir plus sur moi et mon parcours' },

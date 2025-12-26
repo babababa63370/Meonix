@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Home from "@/pages/Home";
 import MathematicsExploration from "@/pages/MathematicsExploration";
 import DiscordBots from "@/pages/DiscordBots";
+import Website from "@/pages/Website";
 import NotFound from "@/pages/not-found";
 import { Sidebar } from "@/components/Sidebar";
 
@@ -14,6 +15,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/explorations-mathematiques" component={MathematicsExploration} />
       <Route path="/discord-bots" component={DiscordBots} />
+      <Route path="/websites" component={Website} />
       <Route component={NotFound} />
     </Switch>
   );
