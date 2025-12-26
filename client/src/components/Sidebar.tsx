@@ -19,7 +19,7 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
 
   const defaultTabs: Tab[] = tabs.length > 0 ? tabs : [
     { id: '1', label: 'Projets', content: 'Découvrez mes projets et réalisations', link: '/explorations-mathematiques' },
-    { id: '2', label: 'À propos', content: 'En savoir plus sur moi et mon parcours' },
+    { id: '2', label: 'À propos', content: 'En savoir plus sur moi et mon parcours', link: '/about' },
     { id: '3', label: 'Contact', content: 'Envoyez-moi un message ou connectons-nous' },
   ];
 
