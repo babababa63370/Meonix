@@ -84,9 +84,12 @@ export default function MathematicsExploration() {
             </section>
           </div>
 
-          <div className="text-center">
+          <div className="flex gap-4 justify-center flex-wrap">
+            <a href="https://club-math.onrender.com" target="_blank" rel="noopener noreferrer">
+              <Button size="lg">Accéder au Projet</Button>
+            </a>
             <Link href="/">
-              <Button size="lg">Retour à l'Accueil</Button>
+              <Button size="lg" variant="outline">Retour à l'Accueil</Button>
             </Link>
           </div>
         </div>
