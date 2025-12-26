@@ -95,6 +95,9 @@ export default function DiscordBots() {
             <Link href="/">
               <Button size="lg" variant="outline">Retour à l'Accueil</Button>
             </Link>
+            <a href="https://discord.gg/xTCE4Mv9" target="_blank" rel="noopener noreferrer">
+              <Button size="lg">Rejoins Mon Discord</Button>
+            </a>
           </div>
         </div>
       </div>
