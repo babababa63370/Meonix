@@ -18,7 +18,7 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const defaultTabs: Tab[] = tabs.length > 0 ? tabs : [
-    { id: '1', label: 'Projets', content: 'Découvrez mes projets et réalisations' },
+    { id: '1', label: 'Projets', content: 'Une plateforme explorant les cycles mathématiques. Prenez chaque chiffre d\'un nombre, élevez-le au carré, additionnez-les. Les nombres "heureux" convergent vers 1, tandis que d\'autres se piègent dans des cycles fascinants. Jeux interactifs, visualisations, art mathématique et plus.' },
     { id: '2', label: 'À propos', content: 'En savoir plus sur moi et mon parcours' },
     { id: '3', label: 'Contact', content: 'Envoyez-moi un message ou connectons-nous' },
   ];
