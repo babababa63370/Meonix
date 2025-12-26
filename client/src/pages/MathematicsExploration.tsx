@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Github } from "lucide-react";
 
 export default function MathematicsExploration() {
   return (
@@ -87,6 +87,12 @@ export default function MathematicsExploration() {
           <div className="flex gap-4 justify-center flex-wrap">
             <a href="https://club-math.onrender.com" target="_blank" rel="noopener noreferrer">
               <Button size="lg">Accéder au Projet</Button>
+            </a>
+            <a href="https://github.com/babababa63370/Club-math" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline">
+                <Github className="h-5 w-5 mr-2" />
+                GitHub
+              </Button>
             </a>
             <Link href="/">
               <Button size="lg" variant="outline">Retour à l'Accueil</Button>
