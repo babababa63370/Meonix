@@ -20,77 +20,63 @@ export default function MathematicsExploration() {
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold mb-4 text-foreground">Explorations Mathématiques</h1>
             <p className="text-xl text-muted-foreground">
-              Comprendre la fascination mathématique des cycles numériques
+              Découvrez les merveilles cachées des nombres
             </p>
           </div>
 
           <Card className="p-8 space-y-6 bg-secondary/50 border-border">
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-foreground">Le Concept</h2>
+              <h2 className="text-2xl font-bold mb-4 text-foreground">Qu'est-ce que c'est ?</h2>
               <p className="text-muted-foreground mb-4">
-                Cette plateforme explore un concept mathématique fascinant : ce qui se passe quand on prend un nombre quelconque et qu'on lui applique répétitivement une opération simple.
+                Vous êtes-vous déjà demandé ce qui se passe si vous prenez un nombre et que vous lui faites subir le même calcul encore et encore ? C'est exactement ce que nous explorons ici !
               </p>
               <p className="text-muted-foreground">
-                L'opération : prenez chaque chiffre d'un nombre, élevez-le au carré, puis additionnez tous ces carrés pour obtenir un nouveau nombre. Répétez ce processus indéfiniment.
+                Le calcul est simple : prenez chaque chiffre de votre nombre, multipliez-le par lui-même (élevez-le au carré), puis additionnez tous ces carrés. Vous obtenez un nouveau nombre. Recommencez le même processus avec ce nouveau nombre. Et encore... et encore.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-foreground">Exemple Pratique</h2>
-              <div className="bg-muted/50 p-4 rounded-lg font-mono space-y-2 text-foreground">
-                <p><span className="text-accent font-bold">Nombre initial :</span> 19</p>
-                <p><span className="text-accent font-bold">Étape 1 :</span> 1² + 9² = 1 + 81 = 82</p>
-                <p><span className="text-accent font-bold">Étape 2 :</span> 8² + 2² = 64 + 4 = 68</p>
-                <p><span className="text-accent font-bold">Étape 3 :</span> 6² + 8² = 36 + 64 = 100</p>
-                <p><span className="text-accent font-bold">Étape 4 :</span> 1² + 0² + 0² = 1</p>
-                <p><span className="text-accent font-bold">Étape 5 :</span> 1² = 1 (cycle détecté !)</p>
+              <h2 className="text-2xl font-bold mb-4 text-foreground">Un Exemple Pour Comprendre</h2>
+              <p className="text-muted-foreground mb-4">Prenons le nombre <span className="text-accent font-bold">19</span> :</p>
+              <div className="bg-muted/50 p-4 rounded-lg space-y-3">
+                <p className="text-foreground"><span className="text-accent font-bold">Étape 1 :</span> 1² + 9² = 1 + 81 = <span className="font-bold">82</span></p>
+                <p className="text-foreground"><span className="text-accent font-bold">Étape 2 :</span> 8² + 2² = 64 + 4 = <span className="font-bold">68</span></p>
+                <p className="text-foreground"><span className="text-accent font-bold">Étape 3 :</span> 6² + 8² = 36 + 64 = <span className="font-bold">100</span></p>
+                <p className="text-foreground"><span className="text-accent font-bold">Étape 4 :</span> 1² + 0² + 0² = <span className="font-bold">1</span></p>
+                <p className="text-foreground"><span className="text-accent font-bold">Étape 5 :</span> 1² = <span className="font-bold">1</span></p>
+                <p className="text-muted-foreground text-sm mt-4">Nous avons atteint 1 et maintenant c'est un cycle : 1 → 1 → 1 → ...</p>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-foreground">Propriétés Intéressantes</h2>
-              <ul className="space-y-3 text-muted-foreground list-disc list-inside">
-                <li>Chaque nombre finit par entrer dans une boucle (un cycle)</li>
-                <li>Certains nombres arrivent à 1 (considérés comme "heureux")</li>
-                <li>D'autres se piègent dans des cycles plus longs</li>
-                <li>Le nombre d'étapes avant le cycle varie énormément</li>
-                <li>La longueur du cycle est toujours assez courte</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4 text-foreground">Nombres "Heureux"</h2>
+              <h2 className="text-2xl font-bold mb-4 text-foreground">La Magie des Nombres "Heureux"</h2>
               <p className="text-muted-foreground mb-4">
-                Les nombres heureux (happy numbers) sont ceux qui finissent par atteindre 1 en appliquant cette opération. Les premiers nombres heureux sont : 1, 7, 10, 13, 19, 23, 28, 31...
+                Ici, c'est amusant : certains nombres, comme le 19, finissent par atteindre 1. Nous les appelons les <span className="text-accent font-bold">nombres heureux</span>. C'est comme s'ils avaient trouvé la paix !
+              </p>
+              <p className="text-muted-foreground mb-4">
+                Voici quelques nombres heureux : 1, 7, 10, 13, 19, 23, 28, 31...
               </p>
               <p className="text-muted-foreground">
-                À l'inverse, les nombres tristes restent piégés dans un cycle qui ne contient pas 1. Le cycle le plus courant (pour les nombres tristes) est : 4 → 16 → 37 → 58 → 89 → 145 → 42 → 20 → 4
+                Mais d'autres nombres ? Ils se retrouvent piégés dans des cycles différents et ne peuvent jamais atteindre 1. Nous les appelons les <span className="text-accent font-bold">nombres tristes</span>.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-foreground">Applications</h2>
-              <p className="text-muted-foreground mb-4">
-                Bien que ce soit un concept mathématique "pur", il a des applications en :
-              </p>
-              <ul className="space-y-2 text-muted-foreground list-disc list-inside">
-                <li>Théorie des nombres</li>
-                <li>Cryptographie</li>
-                <li>Détection de patterns dans les données</li>
-                <li>Éducation mathématique (illustration des séquences)</li>
+              <h2 className="text-2xl font-bold mb-4 text-foreground">Pourquoi c'est Intéressant ?</h2>
+              <ul className="space-y-3 text-muted-foreground list-disc list-inside">
+                <li>Personne ne sait <span className="font-bold">pourquoi</span> les nombres se comportent comme ça</li>
+                <li>Chaque nombre a son propre "destin" unique</li>
+                <li>Les mathématiciens étudient ce sujet depuis des décennies</li>
+                <li>C'est un exemple parfait de comment les mathématiques simples peuvent créer de la complexité</li>
+                <li>Aucun nombre n'échappe à un cycle - ils finissent tous par en trouver un</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4 text-foreground">Essayez Par Vous-Même</h2>
-              <p className="text-muted-foreground mb-4">
-                Testez plusieurs nombres et observez :
+              <h2 className="text-2xl font-bold mb-4 text-foreground">À Vous de Jouer !</h2>
+              <p className="text-muted-foreground">
+                Essayez avec vos propres nombres. Quel est le vôtre ? Sera-t-il heureux ou triste ? Combien d'étapes avant de trouver un cycle ? Explorez, jouez, et découvrez les patterns fascinants qui se cachent dans les nombres.
               </p>
-              <ul className="space-y-2 text-muted-foreground list-disc list-inside">
-                <li>Combien d'étapes avant d'atteindre un cycle</li>
-                <li>La longueur du cycle obtenu</li>
-                <li>Les patterns qui se répètent</li>
-              </ul>
             </section>
           </Card>
 

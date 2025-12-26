@@ -22,7 +22,6 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
     { 
       id: '1', 
       label: 'Projets', 
-      content: 'Une plateforme explorant les cycles mathématiques. Prenez chaque chiffre d\'un nombre, élevez-le au carré, additionnez-les. Les nombres "heureux" convergent vers 1, tandis que d\'autres se piègent dans des cycles fascinants.',
       sublink: { label: 'Explorations Mathématiques', path: '/explorations-mathematiques' }
     },
     { id: '2', label: 'À propos', content: 'En savoir plus sur moi et mon parcours' },
