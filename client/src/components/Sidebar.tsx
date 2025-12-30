@@ -37,7 +37,7 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
         { label: 'Mes liens', path: '/about-links' }
       ]
     },
-    { id: '3', label: 'Contact', content: 'Envoyez-moi un message ou connectons-nous' },
+    { id: '3', label: 'Contact', link: '/contact' },
   ];
 
   const toggleTab = (id: string) => {

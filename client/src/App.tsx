@@ -8,6 +8,7 @@ import DiscordBots from "@/pages/DiscordBots";
 import Website from "@/pages/Website";
 import AboutMe from "@/pages/AboutMe";
 import AboutLinks from "@/pages/AboutLinks";
+import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 import { Sidebar } from "@/components/Sidebar";
 
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/websites" component={Website} />
       <Route path="/about-me" component={AboutMe} />
       <Route path="/about-links" component={AboutLinks} />
+      <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
   );
