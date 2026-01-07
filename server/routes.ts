@@ -32,8 +32,8 @@ export async function registerRoutes(
       const gmailPass = process.env.GMAIL_PASS;
       
       if (!gmailUser || !gmailPass) {
-        console.warn("Gmail credentials not configured. Message received but not sent via email.");
-        return res.status(200).json({ success: true, message: "Message reçu et enregistré" });
+        console.warn("Gmail credentials not configured. Message received and saved but not sent via email.");
+        return res.status(200).json({ success: true, message: "Message reçu et enregistré dans la base de données" });
       }
 
       const transporter = nodemailer.default.createTransport({
