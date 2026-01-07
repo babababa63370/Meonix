@@ -22,6 +22,9 @@ export async function registerRoutes(
 
       const message = parsed.data;
       
+      // Persist message
+      await storage.createMessage(message);
+
       // Send email to admin
       const nodemailer = await import("nodemailer");
       
@@ -30,7 +33,7 @@ export async function registerRoutes(
       
       if (!gmailUser || !gmailPass) {
         console.warn("Gmail credentials not configured. Message received but not sent via email.");
-        return res.status(200).json({ success: true, message: "Message reçu" });
+        return res.status(200).json({ success: true, message: "Message reçu et enregistré" });
       }
 
       const transporter = nodemailer.default.createTransport({
@@ -43,7 +46,7 @@ export async function registerRoutes(
 
       await transporter.sendMail({
         from: gmailUser,
-        to: "baptiste.vaissiere@gmail.com",
+        to: "meonix100@gmail.com",
         subject: `Nouveau message de ${message.name}`,
         html: `
           <h2>Nouveau message reçu</h2>
