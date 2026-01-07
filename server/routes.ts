@@ -25,40 +25,29 @@ export async function registerRoutes(
       // Persist message
       await storage.createMessage(message);
 
-      // Send email to admin
-      const nodemailer = await import("nodemailer");
+      // Send email to admin using Resend
+      const { Resend } = await import("resend");
+      const resend = new Resend(process.env.RESEND_API_KEY || "re_xxxxxxxxx");
       
-      const gmailUser = process.env.GMAIL_USER;
-      const gmailPass = process.env.GMAIL_PASS;
-      
-      if (!gmailUser || !gmailPass) {
-        console.warn("Gmail credentials not configured. Message received and saved but not sent via email.");
-        return res.status(200).json({ success: true, message: "Message reçu et enregistré dans la base de données" });
+      try {
+        await resend.emails.send({
+          from: "onboarding@resend.dev",
+          to: "meonix100@gmail.com",
+          subject: `Nouveau message de ${message.name}`,
+          html: `
+            <h2>Nouveau message reçu</h2>
+            <p><strong>De:</strong> ${message.name}</p>
+            <p><strong>Email:</strong> ${message.email}</p>
+            <hr>
+            <p><strong>Message:</strong></p>
+            <p>${message.message.replace(/\n/g, "<br>")}</p>
+          `,
+        });
+        res.status(200).json({ success: true, message: "Message envoyé avec succès via Resend" });
+      } catch (emailError) {
+        console.error("Resend error:", emailError);
+        res.status(200).json({ success: true, message: "Message enregistré mais erreur d'envoi e-mail" });
       }
-
-      const transporter = nodemailer.default.createTransport({
-        service: "gmail",
-        auth: {
-          user: gmailUser,
-          pass: gmailPass,
-        },
-      });
-
-      await transporter.sendMail({
-        from: gmailUser,
-        to: "meonix100@gmail.com",
-        subject: `Nouveau message de ${message.name}`,
-        html: `
-          <h2>Nouveau message reçu</h2>
-          <p><strong>De:</strong> ${message.name}</p>
-          <p><strong>Email:</strong> ${message.email}</p>
-          <hr>
-          <p><strong>Message:</strong></p>
-          <p>${message.message.replace(/\n/g, "<br>")}</p>
-        `,
-      });
-
-      res.status(200).json({ success: true, message: "Message envoyé avec succès" });
     } catch (error) {
       console.error("Error sending email:", error);
       res.status(500).json({ error: "Erreur lors de l'envoi du message" });
