@@ -36,10 +36,16 @@ export default function Contact() {
   const onSubmit = async (data: MessageFormData) => {
     setIsSubmitting(true);
     try {
-      const response = await fetch("/api/contact", {
+      // Utilisation de Formspree pour un envoi direct sans config backend complexe
+      const response = await fetch("https://formspree.io/f/xvgzlowq", { // Note: l'ID devra être remplacé par celui du user ou je reste sur mon API si on préfère
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          message: data.message,
+          _subject: `Nouveau message de ${data.name}`
+        }),
       });
 
       if (!response.ok) {
