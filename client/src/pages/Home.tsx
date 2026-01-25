@@ -28,25 +28,28 @@ export default function Home() {
         className="max-w-4xl w-full space-y-12"
       >
         {/* Header */}
-        <div className="text-center space-y-4">
+        <div className="text-center space-y-4 perspective-1000">
           <motion.h1 
             initial={{ scale: 0.5, opacity: 0, rotate: -5 }}
             animate={{ 
               scale: [0.5, 1.2, 1],
               opacity: 1,
               rotate: 0,
-              textShadow: [
-                "0 0 0px rgba(var(--accent), 0)",
-                "0 0 20px rgba(var(--accent), 0.5)",
-                "0 0 0px rgba(var(--accent), 0)"
-              ]
+            }}
+            whileHover={{ 
+              scale: 0.9,
+              rotateX: 20,
+              rotateY: -20,
+              skewX: 10,
+              filter: "blur(2px)",
+              transition: { type: "spring", stiffness: 400, damping: 10 }
             }}
             transition={{ 
               duration: 1.5,
               ease: "easeOut",
               times: [0, 0.6, 1]
             }}
-            className="text-6xl md:text-8xl font-bold tracking-tight text-foreground"
+            className="text-6xl md:text-8xl font-bold tracking-tight text-foreground cursor-none select-none"
           >
             MEONIX
           </motion.h1>
