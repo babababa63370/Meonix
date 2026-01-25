@@ -68,11 +68,22 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 + idx * 0.2, duration: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 border border-border rounded-lg bg-secondary/50 hover-elevate transition-all cursor-default"
+              whileHover={{ 
+                scale: 1.05,
+                rotateY: 5,
+                rotateX: 5,
+                boxShadow: "0px 10px 30px rgba(0,0,0,0.1)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="p-6 border border-border rounded-lg bg-secondary/50 hover-elevate transition-all cursor-default perspective-1000"
               data-testid={`card-interest-${idx}`}
             >
-              <div className="text-4xl mb-4">{interest.icon}</div>
+              <motion.div 
+                className="text-4xl mb-4"
+                whileHover={{ rotate: [0, -10, 10, -10, 0], transition: { duration: 0.5 } }}
+              >
+                {interest.icon}
+              </motion.div>
               <h2 className="text-xl font-semibold text-foreground mb-3">
                 {interest.title}
               </h2>
