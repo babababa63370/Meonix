@@ -17,6 +17,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
 
 type MessageFormData = z.infer<typeof insertMessageSchema>;
 
@@ -65,25 +66,44 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <div className="mb-8">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="max-w-4xl mx-auto px-6 py-12"
+      >
+        <motion.div 
+          initial={{ x: -20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="mb-8"
+        >
           <Link href="/">
             <Button variant="outline" size="sm" data-testid="button-back">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Retour
             </Button>
           </Link>
-        </div>
+        </motion.div>
 
         <div className="space-y-12">
-          <div className="text-center">
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-center"
+          >
             <h1 className="text-5xl font-bold mb-4 text-foreground">Contact</h1>
             <p className="text-xl text-muted-foreground">
               Entrons en contact
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-12 max-w-3xl mx-auto">
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="space-y-12 max-w-3xl mx-auto"
+          >
             <section className="space-y-8">
               <div className="bg-secondary/50 border border-border rounded-lg p-6">
                 <h2 className="text-xl font-semibold text-foreground mb-3">Message</h2>
@@ -166,17 +186,22 @@ export default function Contact() {
                 </form>
               </Form>
             </section>
-          </div>
+          </motion.div>
 
-          <div className="flex gap-4 justify-center flex-wrap">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="flex gap-4 justify-center flex-wrap"
+          >
             <Link href="/">
               <Button size="lg" variant="outline" data-testid="button-home">
                 Retour à l'Accueil
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
