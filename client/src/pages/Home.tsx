@@ -29,13 +29,31 @@ export default function Home() {
       >
         {/* Header */}
         <div className="text-center space-y-4">
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-foreground">
+          <motion.h1 
+            initial={{ scale: 0.5, opacity: 0, rotate: -5 }}
+            animate={{ 
+              scale: [0.5, 1.2, 1],
+              opacity: 1,
+              rotate: 0,
+              textShadow: [
+                "0 0 0px rgba(var(--accent), 0)",
+                "0 0 20px rgba(var(--accent), 0.5)",
+                "0 0 0px rgba(var(--accent), 0)"
+              ]
+            }}
+            transition={{ 
+              duration: 1.5,
+              ease: "easeOut",
+              times: [0, 0.6, 1]
+            }}
+            className="text-6xl md:text-8xl font-bold tracking-tight text-foreground"
+          >
             MEONIX
-          </h1>
+          </motion.h1>
           <motion.div 
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
             className="h-1 w-20 bg-accent mx-auto rounded-full origin-center" 
           />
         </div>
