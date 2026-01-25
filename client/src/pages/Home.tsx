@@ -1,6 +1,18 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [isPressed, setIsPressed] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   const interests = [
     {
       title: 'Programmation',
@@ -20,7 +32,19 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-12">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden">
+      {isPressed && (
+        <div 
+          className="fixed pointer-events-none z-[100] text-accent font-bold text-xl select-none mix-blend-difference"
+          style={{ 
+            left: mousePos.x, 
+            top: mousePos.y,
+            transform: 'translate(-50%, -50%)'
+          }}
+        >
+          MEONIX
+        </div>
+      )}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -44,12 +68,15 @@ export default function Home() {
               filter: "blur(2px)",
               transition: { type: "spring", stiffness: 400, damping: 10 }
             }}
+            onMouseDown={() => setIsPressed(true)}
+            onMouseUp={() => setIsPressed(false)}
+            onMouseLeave={() => setIsPressed(false)}
             transition={{ 
               duration: 1.5,
               ease: "easeOut",
               times: [0, 0.6, 1]
             }}
-            className="text-6xl md:text-8xl font-bold tracking-tight text-foreground cursor-none select-none"
+            className={`text-6xl md:text-8xl font-bold tracking-tight text-foreground select-none transition-all ${isPressed ? 'cursor-none opacity-50 scale-75 blur-md' : 'cursor-none'}`}
           >
             MEONIX
           </motion.h1>
