@@ -68,9 +68,7 @@ export default function Home() {
               filter: "blur(2px)",
               transition: { type: "spring", stiffness: 400, damping: 10 }
             }}
-            onMouseDown={() => setIsPressed(true)}
-            onMouseUp={() => setIsPressed(false)}
-            onMouseLeave={() => setIsPressed(false)}
+            onMouseDown={() => setIsPressed(!isPressed)}
             transition={{ 
               duration: 1.5,
               ease: "easeOut",
