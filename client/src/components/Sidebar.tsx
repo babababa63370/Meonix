@@ -54,6 +54,7 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         animate={{ x: isOpen ? 320 : 0 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
         className="fixed top-4 left-4 z-50 md:hidden p-2 rounded-md bg-secondary text-foreground hover-elevate transition-colors"
         data-testid="button-sidebar-toggle"
       >
@@ -67,6 +68,7 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 md:hidden bg-black/50"
             onClick={() => setIsOpen(false)}
           />
@@ -77,6 +79,7 @@ export function Sidebar({ tabs = [] }: SidebarProps) {
       <motion.div 
         initial={false}
         animate={{ x: isOpen || typeof window !== 'undefined' && window.innerWidth >= 768 ? 0 : -320 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
         className="fixed md:static top-0 left-0 h-screen z-40 w-80 bg-secondary border-r border-border overflow-y-auto"
       >
         <div className="p-4 space-y-2">

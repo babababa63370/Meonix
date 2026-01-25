@@ -22,34 +22,29 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-12">
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
         className="max-w-4xl w-full space-y-12"
       >
         {/* Header */}
         <div className="text-center space-y-4">
-          <motion.h1 
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-6xl md:text-8xl font-bold tracking-tight text-foreground"
-          >
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-foreground">
             MEONIX
-          </motion.h1>
+          </h1>
           <motion.div 
-            initial={{ width: 0 }}
-            animate={{ width: 80 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="h-1 bg-accent mx-auto rounded-full" 
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="h-1 w-20 bg-accent mx-auto rounded-full origin-center" 
           />
         </div>
 
         {/* Description */}
         <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
           className="text-center space-y-4"
         >
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
@@ -65,25 +60,14 @@ export default function Home() {
           {interests.map((interest, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2 + idx * 0.2, duration: 0.5 }}
-              whileHover={{ 
-                scale: 1.05,
-                rotateY: 5,
-                rotateX: 5,
-                boxShadow: "0px 10px 30px rgba(0,0,0,0.1)"
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="p-6 border border-border rounded-lg bg-secondary/50 hover-elevate transition-all cursor-default perspective-1000"
+              transition={{ delay: 0.4 + idx * 0.1, duration: 0.4 }}
+              whileHover={{ y: -5 }}
+              className="p-6 border border-border rounded-lg bg-secondary/50 transition-all cursor-default"
               data-testid={`card-interest-${idx}`}
             >
-              <motion.div 
-                className="text-4xl mb-4"
-                whileHover={{ rotate: [0, -10, 10, -10, 0], transition: { duration: 0.5 } }}
-              >
-                {interest.icon}
-              </motion.div>
+              <div className="text-4xl mb-4">{interest.icon}</div>
               <h2 className="text-xl font-semibold text-foreground mb-3">
                 {interest.title}
               </h2>

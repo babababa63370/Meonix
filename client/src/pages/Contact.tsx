@@ -69,27 +69,23 @@ export default function Contact() {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
         className="max-w-4xl mx-auto px-6 py-12"
       >
-        <motion.div 
-          initial={{ x: -20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="mb-8"
-        >
+        <div className="mb-8">
           <Link href="/">
             <Button variant="outline" size="sm" data-testid="button-back">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Retour
             </Button>
           </Link>
-        </motion.div>
+        </div>
 
         <div className="space-y-12">
           <motion.div 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
             className="text-center"
           >
             <h1 className="text-5xl font-bold mb-4 text-foreground">Contact</h1>
@@ -99,9 +95,9 @@ export default function Contact() {
           </motion.div>
 
           <motion.div 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
             className="space-y-12 max-w-3xl mx-auto"
           >
             <section className="space-y-8">
